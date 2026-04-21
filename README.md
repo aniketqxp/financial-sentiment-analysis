@@ -41,7 +41,7 @@ graph TD
 - **Financial Sentiment Engine**: Domain-specific classification using the ProsusAI/finbert transformer.
 - **Model Explainability**: Word-level contribution analysis via LIME to demystify "black-box" predictions.
 
-![Model Output Showcase](./assets/predictions.png)
+![Model Output Showcase](./assets/predictions_v2.png)
 *Figure 1: Sentiment analysis results showing confidence scores and LIME-based word contributions for each classification.*
 
 
