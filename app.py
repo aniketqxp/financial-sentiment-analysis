@@ -32,7 +32,7 @@ from src.core_functions import (
 st.set_page_config(
     page_title="Financial Sentiment Analysis",
     layout="wide",
-    page_icon="chart_with_upwards_trend",
+    page_icon=None,
     initial_sidebar_state="expanded"
 )
 
