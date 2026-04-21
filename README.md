@@ -41,7 +41,8 @@ graph TD
 - **Financial Sentiment Engine**: Domain-specific classification using the ProsusAI/finbert transformer.
 - **Model Explainability**: Word-level contribution analysis via LIME to demystify "black-box" predictions.
 
-![Dashboard Overview](./assets/dashboard_mockup.png)
+![Model Output Showcase](./assets/predictions.png)
+*Figure 1: Sentiment analysis results showing confidence scores and LIME-based word contributions for each classification.*
 
 
 ## Getting Started
@@ -93,8 +94,6 @@ python scripts/generate_materials.py
 ![Sentiment Distribution](./assets/sentiment_distribution.png)
 ![Confidence Profile](./assets/confidence_distribution.png)
 ![Performance Matrix](./assets/confusion_matrix.png)
-![Explainability Samples](./assets/predictions.png)
-*LIME Explainability: Representative samples for each sentiment class showing confidence scores and word-level feature contributions.*
 
 ## License
 Distributed under the MIT License. See `LICENSE` for more information.
