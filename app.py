@@ -1,7 +1,7 @@
 """
 Financial Sentiment Analysis Dashboard
 A comprehensive Streamlit app for analyzing financial text sentiment using:
-OCR → LLM Cleaning → FinBERT Classification → LIME Explainability
+OCR -> LLM Cleaning -> FinBERT Classification -> LIME Explainability
 """
 
 import streamlit as st
@@ -32,7 +32,7 @@ from src.core_functions import (
 st.set_page_config(
     page_title="Financial Sentiment Analysis",
     layout="wide",
-    page_icon="📊",
+    page_icon="chart_with_upwards_trend",
     initial_sidebar_state="expanded"
 )
 
@@ -244,11 +244,11 @@ def render_explanation_card(explanation):
 # Wherever else you call it for live demo
 
     
-    # Sentiment colors and emojis
+    # Sentiment colors and labels
     sentiment_config = {
-        'positive': {'color': '#10b981', 'bg': '#d1fae5', 'emoji': '📈', 'label': 'POSITIVE'},
-        'negative': {'color': '#ef4444', 'bg': '#fee2e2', 'emoji': '📉', 'label': 'NEGATIVE'},
-        'neutral': {'color': '#6b7280', 'bg': '#f3f4f6', 'emoji': '➖', 'label': 'NEUTRAL'}
+        'positive': {'color': '#10b981', 'bg': '#d1fae5', 'label': 'POSITIVE'},
+        'neutral': {'color': '#6b7280', 'bg': '#f3f4f6', 'label': 'NEUTRAL'},
+        'negative': {'color': '#ef4444', 'bg': '#fee2e2', 'label': 'NEGATIVE'},
     }
     
     config = sentiment_config.get(sentiment.lower(), sentiment_config['neutral'])
@@ -463,7 +463,6 @@ def render_explanation_card(explanation):
         <div class="explanation-container">
             <div class="explanation-header">
                 <div class="sentiment-badge">
-                    <span>{config['emoji']}</span>
                     <span>{config['label']}</span>
                 </div>
                 
@@ -520,7 +519,7 @@ with st.sidebar:
     st.markdown("---")
     
     # Navigation section with custom styling
-    st.markdown("### 🧭 Navigation")
+    st.markdown("### Navigation")
     section = st.radio(
         "Select Section:",
         ["Overview", "Dataset Analysis", "Live Demo"],
@@ -531,7 +530,7 @@ with st.sidebar:
     st.markdown("---")
     
     # Model Stack
-    st.markdown("**🔧 Model Stack**")
+    st.markdown("**Model Stack**")
     st.markdown("""
     <div style="font-size: 0.9em; line-height: 2; padding-left: 8px;">
         <div style="display: flex; justify-content: space-between; padding: 4px 0;">
@@ -557,7 +556,7 @@ with st.sidebar:
     # Live Demo Settings
     if section == "Live Demo":
         st.markdown("---")
-        st.markdown("### ⚙️ Settings")
+        st.markdown("### Settings")
         
         # Settings card with subtle background
         st.markdown("""
@@ -590,8 +589,7 @@ with st.sidebar:
     st.markdown("""
     <div style="text-align: center; padding: 10px; color: #666;">
         <p style="font-size: 0.8em; margin: 5px 0;">
-            Built with Streamlit<br>
-            Powered by AI 🤖
+            Financial Intelligence Platform
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -606,7 +604,7 @@ with st.sidebar:
 
 if section == "Overview":
     # Dataset Information
-    st.markdown("### 📊 About the Dataset: Auditor Sentiment")
+    st.markdown("### About the Dataset: Auditor Sentiment")
 
     # Dataset stats from HF card
     total_sentences = "4,840" 
@@ -647,11 +645,11 @@ if section == "Overview":
     agreement**. Labels reflect sentiment from an **investor's perspective** - how the sentence might influence 
     stock price perception.
 
-    ### 🎯 Annotation Focus
+    ### Annotation Focus
     Auditors classified sentences based on their **potential impact on the subject company's stock price**. The 
     dataset covers corporate earnings, mergers, acquisitions, market developments, and financial performance reports.
 
-    ### 📈 Sentiment Distribution
+    ### Sentiment Distribution
     The dataset shows typical financial news patterns with **neutral statements dominating**, followed by positive, 
     then negative sentiment (exact distribution available in analysis section).
 
@@ -665,7 +663,7 @@ if section == "Overview":
     st.markdown("---")
     
     # Quick Stats
-    st.markdown("### 📊 Quick Stats")
+    st.markdown("### Quick Stats")
     
     _, _, analysis = load_precomputed_data()
     
@@ -691,12 +689,12 @@ if section == "Overview":
     st.markdown("---")
     
     # Workflow
-    st.markdown("### 🔄 Pipeline Workflow")
+    st.markdown("### Pipeline Workflow")
 
     st.markdown("""
     <div style="background-color: #f8f9fa; border-left: 4px solid #667eea; padding: 15px 20px; border-radius: 8px; margin: 12px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.08);">
         <div style="display: flex; align-items: center; gap: 12px;">
-            <span style="font-size: 1.5em;">📄</span>
+            <span style="font-size: 1.5em;"></span>
             <div>
                 <div style="font-weight: 600; color: #2c3e50; font-size: 1.05em;">Image/Text Input</div>
                 <div style="font-size: 0.88em; color: #7f8c8d;">User uploads document or pastes text</div>
@@ -705,12 +703,12 @@ if section == "Overview":
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown('<div style="text-align: center; color: #bdc3c7; font-size: 1.3em; margin: -5px 0;">↓</div>', unsafe_allow_html=True)
+    st.markdown('<div style="text-align: center; color: #bdc3c7; font-size: 1.3em; margin: -5px 0;">|</div>', unsafe_allow_html=True)
 
     st.markdown("""
     <div style="background-color: #f8f9fa; border-left: 4px solid #e74c3c; padding: 15px 20px; border-radius: 8px; margin: 12px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.08);">
         <div style="display: flex; align-items: center; gap: 12px;">
-            <span style="font-size: 1.5em;">👁️</span>
+            <span style="font-size: 1.5em;">OCR</span>
             <div>
                 <div style="font-weight: 600; color: #2c3e50; font-size: 1.05em;">OCR Extraction</div>
                 <div style="font-size: 0.88em; color: #7f8c8d;">Tesseract extracts raw text from images</div>
@@ -719,12 +717,12 @@ if section == "Overview":
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown('<div style="text-align: center; color: #bdc3c7; font-size: 1.3em; margin: -5px 0;">↓</div>', unsafe_allow_html=True)
+    st.markdown('<div style="text-align: center; color: #bdc3c7; font-size: 1.3em; margin: -5px 0;">|</div>', unsafe_allow_html=True)
 
     st.markdown("""
     <div style="background-color: #f8f9fa; border-left: 4px solid #3498db; padding: 15px 20px; border-radius: 8px; margin: 12px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.08);">
         <div style="display: flex; align-items: center; gap: 12px;">
-            <span style="font-size: 1.5em;">🤖</span>
+            <span style="font-size: 1.5em;"></span>
             <div>
                 <div style="font-weight: 600; color: #2c3e50; font-size: 1.05em;">LLM Structuring</div>
                 <div style="font-size: 0.88em; color: #7f8c8d;">Llama 3.1 cleans and structures sentences</div>
@@ -733,12 +731,12 @@ if section == "Overview":
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown('<div style="text-align: center; color: #bdc3c7; font-size: 1.3em; margin: -5px 0;">↓</div>', unsafe_allow_html=True)
+    st.markdown('<div style="text-align: center; color: #bdc3c7; font-size: 1.3em; margin: -5px 0;">|</div>', unsafe_allow_html=True)
 
     st.markdown("""
     <div style="background-color: #f8f9fa; border-left: 4px solid #2ecc71; padding: 15px 20px; border-radius: 8px; margin: 12px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.08);">
         <div style="display: flex; align-items: center; gap: 12px;">
-            <span style="font-size: 1.5em;">🧠</span>
+            <span style="font-size: 1.5em;"></span>
             <div>
                 <div style="font-weight: 600; color: #2c3e50; font-size: 1.05em;">Sentiment Classification</div>
                 <div style="font-size: 0.88em; color: #7f8c8d;">FinBERT predicts positive/negative/neutral</div>
@@ -747,12 +745,12 @@ if section == "Overview":
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown('<div style="text-align: center; color: #bdc3c7; font-size: 1.3em; margin: -5px 0;">↓</div>', unsafe_allow_html=True)
+    st.markdown('<div style="text-align: center; color: #bdc3c7; font-size: 1.3em; margin: -5px 0;">|</div>', unsafe_allow_html=True)
 
     st.markdown("""
     <div style="background-color: #f8f9fa; border-left: 4px solid #f39c12; padding: 15px 20px; border-radius: 8px; margin: 12px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.08);">
         <div style="display: flex; align-items: center; gap: 12px;">
-            <span style="font-size: 1.5em;">💡</span>
+            <span style="font-size: 1.5em;"></span>
             <div>
                 <div style="font-weight: 600; color: #2c3e50; font-size: 1.05em;">LIME Explanation</div>
                 <div style="font-size: 0.88em; color: #7f8c8d;">Word-level contribution analysis</div>
@@ -766,7 +764,7 @@ if section == "Overview":
     st.markdown("""
     <div style="background-color: #f8f9fa; border-left: 4px solid #9b59b6; padding: 15px 20px; border-radius: 8px; margin: 12px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.08);">
         <div style="display: flex; align-items: center; gap: 12px;">
-            <span style="font-size: 1.5em;">📊</span>
+            <span style="font-size: 1.5em;"></span>
             <div>
                 <div style="font-weight: 600; color: #2c3e50; font-size: 1.05em;">Results & Visualizations</div>
                 <div style="font-size: 0.88em; color: #7f8c8d;">Interactive dashboards and insights</div>
@@ -778,27 +776,27 @@ if section == "Overview":
     st.markdown("---")
     
     # Key Features
-    st.markdown("### ✨ Key Features")
+    st.markdown("### Key Features")
     
     col1, col2 = st.columns(2)
     
     with col1:
         st.markdown("""
-        - 📤 **Multi-Modal Input**: Upload images or paste text
-        - 🎯 **Pre-trained Models**: FinBERT fine-tuned on financial texts
-        - 💡 **Explainable AI**: LIME highlights prediction drivers
+        - Multi-Modal Input: Upload images or paste text
+        - Pre-trained Models: FinBERT fine-tuned on financial texts
+        - Explainable AI: LIME highlights prediction drivers
         """)
     
     with col2:
         st.markdown("""
-        - 📊 **Dataset Analysis**: 3,877 pre-analyzed financial sentences
-        - ⚡ **Real-time Processing**: Live demo with full pipeline
+        - Dataset Analysis: 3,877 pre-analyzed financial sentences
+        - Real-time Processing: Live demo with full pipeline
         """)
     
     st.markdown("---")
     
     # Technology & References
-    st.markdown("### 🛠️ Technology Stack")
+    st.markdown("### Technology Stack")
     
     col1, col2 = st.columns(2)
     
@@ -822,7 +820,7 @@ if section == "Overview":
     st.markdown("---")
     
     # References
-    with st.expander("📚 Key References & Dataset Info"):
+    with st.expander("Key References & Dataset Info"):
         st.markdown("""
         **Academic Papers:**
         - **FinBERT**: [Araci, D. (2019). Financial Sentiment Analysis with Pre-trained Language Models](https://arxiv.org/abs/1908.10063)
@@ -836,14 +834,14 @@ if section == "Overview":
         - Automated screening of financial documents
         """)
     
-    st.success("👈 Use the sidebar to explore **Dataset Analysis** or try the **Live Demo**!")
+    st.success("Use the sidebar to explore Dataset Analysis or try the Live Demo!")
 
 # ============================================================================
 # DATASET ANALYSIS SECTION
 # ============================================================================
 
 elif section == "Dataset Analysis":
-    st.markdown("## 💼 Dataset Analysis")
+    st.title("Dataset Analysis")
     st.markdown("Analysis of Financial PhraseBank dataset with 3,877 financial sentences")
     
     # Load data
@@ -853,7 +851,8 @@ elif section == "Dataset Analysis":
         st.stop()
     
     # --- Dataset Overview ---
-    st.markdown("### Dataset Overview")
+    st.title("Financial Sentiment Intelligence")
+    st.markdown("### Decision-Support System for Professional Investors")
     
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -972,7 +971,7 @@ elif section == "Dataset Analysis":
                 render_explanation_card(exp)
                 
                 # Show top contributing words as bar chart
-                with st.expander(f"📊 View Top Contributing Words (Sample {i+1})", expanded=False):
+                with st.expander(f"View Top Contributing Words (Sample {i+1})", expanded=False):
                     words, weights = zip(*exp['word_contributions'][:10])
                     contrib_df = pd.DataFrame({
                         'Word': words,
@@ -997,7 +996,7 @@ elif section == "Dataset Analysis":
 # ============================================================================
 
 elif section == "Live Demo":
-    st.markdown("## Live Sentiment Analysis Demo")
+    st.title("Live Sentiment Analysis Demo")
     st.markdown("Process your own financial text or images through the complete pipeline")
     
     # --- API Key Input ---
@@ -1008,7 +1007,7 @@ elif section == "Live Demo":
 
     if api_token:
         st.session_state.api_token = api_token
-        st.success("✅ API token loaded from environment")
+        st.success("API token loaded from environment")
     else:
         api_token = st.text_input(
             "Hugging Face API Token",
@@ -1020,9 +1019,9 @@ elif section == "Live Demo":
         if api_token:
             if 'api_token' not in st.session_state or st.session_state.api_token != api_token:
                 st.session_state.api_token = api_token
-            st.success("✅ API token configured")
+            st.success("API token configured")
         else:
-            st.warning("⚠️ Please provide your Hugging Face API token to continue")
+            st.warning("Please provide your Hugging Face API token to continue")
     
     st.markdown("---")
     
@@ -1074,7 +1073,7 @@ elif section == "Live Demo":
         
         text_input = st.text_area(
             "Paste financial text",
-            value=st.session_state.sample_text,  # Add this parameter
+            value=st.session_state.sample_text,
             height=150,
             placeholder="Example: The company's revenue increased by 15% this quarter, exceeding analyst expectations.",
             help="Enter financial text for sentiment analysis"
@@ -1090,11 +1089,11 @@ elif section == "Live Demo":
         
         # Validation
         if not api_token:
-            st.error("❌ Please provide your Hugging Face API token")
+            st.error("Please provide your Hugging Face API token")
             st.stop()
         
         if not uploaded_file and not text_input:
-            st.error("❌ Please provide input (upload image or enter text)")
+            st.error("Please provide input (upload image or enter text)")
             st.stop()
         
         try:
@@ -1105,13 +1104,13 @@ elif section == "Live Demo":
                     st.session_state.tokenizer = tokenizer
                     st.session_state.model = model
                     st.session_state.model_loaded = True
-                st.success("✅ Model loaded successfully!")
+                st.success("Model loaded successfully!")
             else:
                 tokenizer = st.session_state.tokenizer
                 model = st.session_state.model
             
             # --- Step 1: OCR/LLM Processing ---
-            st.markdown('<div class="step-indicator">📍 <b>Step 1/3:</b> Processing input...</div>', unsafe_allow_html=True)
+            st.markdown('<div class="step-indicator"><b>Step 1/3:</b> Processing input...</div>', unsafe_allow_html=True)
             
             progress_bar = st.progress(0)
             status_text = st.empty()
@@ -1135,7 +1134,7 @@ elif section == "Live Demo":
             )
             
             progress_bar.progress(33)
-            status_text.text("✅ Input processed successfully")
+            status_text.text("Input processed successfully")
             time.sleep(0.5)
             
             # Display intermediate results
@@ -1167,7 +1166,7 @@ elif section == "Live Demo":
                             st.markdown(f"{i}. {sentence}")
             
             # --- Step 2: Sentiment Prediction ---
-            st.markdown('<div class="step-indicator">📍 <b>Step 2/3:</b> Running FinBERT classification...</div>', unsafe_allow_html=True)
+            st.markdown('<div class="step-indicator"><b>Step 2/3:</b> Running FinBERT classification...</div>', unsafe_allow_html=True)
             
             status_text.text("Analyzing sentiment...")
             
@@ -1182,7 +1181,7 @@ elif section == "Live Demo":
             df = pd.concat([df.reset_index(drop=True), predictions], axis=1)
             
             progress_bar.progress(66)
-            status_text.text("✅ Sentiment analysis complete")
+            status_text.text("Sentiment analysis complete")
             time.sleep(0.5)
             
             # Display prediction results
@@ -1219,7 +1218,7 @@ elif section == "Live Demo":
             )
             
             # --- Step 3: LIME Explanation ---
-            st.markdown('<div class="step-indicator">📍 <b>Step 3/3:</b> Generating LIME explanation...</div>', unsafe_allow_html=True)
+            st.markdown('<div class="step-indicator"><b>Step 3/3:</b> Generating LIME explanation...</div>', unsafe_allow_html=True)
             
             status_text.text("Creating interpretability visualization...")
             
@@ -1232,7 +1231,7 @@ elif section == "Live Demo":
             explanation = explain_single_prediction(sentence, label, tokenizer, model)
             
             progress_bar.progress(100)
-            status_text.text("✅ Analysis complete!")
+            status_text.text("Analysis complete")
             time.sleep(0.5)
             
             # Clear progress indicators
@@ -1269,23 +1268,23 @@ elif section == "Live Demo":
                             st.metric("Neutral", f"{row['prob_neutral']*100:.1f}%")
             
             # Success message
-            st.success("✅ Analysis complete! See results above.")
+            st.success("Analysis complete! See results above.")
             
             # Clean up temp file
             if image_path and image_path.exists():
                 image_path.unlink()
         
         except FileNotFoundError as e:
-            st.error(f"❌ File not found: {str(e)}")
+            st.error(f"File not found: {str(e)}")
             st.info("Please make sure the uploaded file is valid")
         
         except ValueError as e:
-            st.error(f"❌ Invalid input: {str(e)}")
+            st.error(f"Invalid input: {str(e)}")
             if "API token" in str(e):
                 st.info("Please check your Hugging Face API token")
         
         except Exception as e:
-            st.error(f"❌ An error occurred: {str(e)}")
-            with st.expander("🔍 View Error Details"):
+            st.error(f"An error occurred: {str(e)}")
+            with st.expander("View Error Details"):
                 st.exception(e)
             st.info("Please try again or contact support if the issue persists")
