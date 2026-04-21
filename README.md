@@ -93,6 +93,8 @@ python scripts/generate_materials.py
 ![Sentiment Distribution](./assets/sentiment_distribution.png)
 ![Confidence Profile](./assets/confidence_distribution.png)
 ![Performance Matrix](./assets/confusion_matrix.png)
+![Explainability Samples](./assets/predictions.png)
+*LIME Explainability: Representative samples for each sentiment class showing confidence scores and word-level feature contributions.*
 
 ## License
 Distributed under the MIT License. See `LICENSE` for more information.
