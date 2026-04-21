@@ -1,0 +1,37 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.venv/
+venv/
+ENV/
+env/
+.env
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# IDEs
+.vscode/
+.idea/
+
+# Large Data & Binary Files
+*.tiff
+*.h5
+*.pt
+*.safetensors
+*.bin
+*.model
+*.onnx
+
+# Generated Analysis Artifacts
+streamlit_data/
+output/
+*.csv
+*.json
+*.png
+*.html
+*.log
+gemini_insights.txt
