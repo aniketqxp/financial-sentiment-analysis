@@ -10,33 +10,29 @@ A high-fidelity sentiment analysis pipeline designed for financial text. This sy
 
 ```mermaid
 graph TD
-    %% Node Definitions with Strategic Shapes
-    Input[/Financial Image or Text/]
-    OCR([OCR Engine: Tesseract])
-    LLM([LLM Correction: Llama 3.1])
-    FinBERT[[Sentiment Engine: FinBERT]]
-    LIME{{Explainability: LIME}}
-    Dashboard[Interactive Streamlit Dashboard]
-    Insights[/Visual Insights/]
+    %% Node Definitions
+    A[/Financial Image or Text/] --> B(OCR Engine: Tesseract)
+    B --> C([LLM Correction: Llama 3.1])
+    C --> D[FinBERT Classification]
+    D --> E{Confidence Check}
+    E -->|>=0.6| F([Explainability: LIME])
+    E -->|<0.6| G[Flag as Uncertain]
+    F --> H[Dashboard Logic]
+    G --> H
+    H --> I>Sentiment Analytics]
+    I --> J[/Visual Insights & Predictions/]
 
-    %% Logical Flow
-    Input --> OCR
-    OCR --> LLM
-    LLM --> FinBERT
-    FinBERT --> LIME
-    LIME --> Dashboard
-    Dashboard --> Insights
-
-    %% Strategic Styling for High Contrast and Readability
-    %% Using dark borders and light backgrounds with dark text (default)
-    
-    style Input fill:#f9f9f9,stroke:#333,stroke-width:2px
-    style OCR fill:#f9f9f9,stroke:#333,stroke-width:2px
-    style LLM fill:#f9f9f9,stroke:#333,stroke-width:2px
-    style FinBERT fill:#e1f5fe,stroke:#01579b,stroke-width:3px
-    style LIME fill:#fff3e0,stroke:#e65100,stroke-width:2px
-    style Dashboard fill:#f9f9f9,stroke:#333,stroke-width:2px
-    style Insights fill:#f9f9f9,stroke:#333,stroke-width:2px
+    %% Styling
+    style A fill:#2d3436,stroke:#000,color:#fff
+    style B fill:#0984e3,stroke:#000,color:#fff
+    style C fill:#6c5ce7,stroke:#000,color:#fff
+    style D fill:#00b894,stroke:#000,color:#fff
+    style E fill:#fdcb6e,stroke:#000,color:#000
+    style F fill:#e17055,stroke:#000,color:#fff
+    style G fill:#d63031,stroke:#000,color:#fff
+    style H fill:#00b894,stroke:#000,color:#fff
+    style I fill:#2d3436,stroke:#000,color:#fff
+    style J fill:#2d3436,stroke:#000,color:#fff
 ```
 
 ## Key Features
