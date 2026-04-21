@@ -16,8 +16,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Import from core_functions.py
-from core_functions import (
+# Import from src/core_functions.py
+from src.core_functions import (
     load_finbert_model,
     process_user_input,
     predict_sentiment,

@@ -1,6 +1,11 @@
-# generate_materials.py - Pre-generate all dataset analysis materials for Streamlit
+import sys
+import os
+from pathlib import Path
 
-from core_functions import *
+# Add project root to sys.path
+sys.path.append(str(Path(__file__).parent.parent))
+
+from src.core_functions import *
 from datasets import load_dataset
 import plotly.express as px
 import plotly.graph_objects as go
