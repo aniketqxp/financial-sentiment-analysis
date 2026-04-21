@@ -34,6 +34,7 @@ output/
 !data/*.json
 
 *.png
+!assets/*.png
 *.html
 *.log
 gemini_insights.txt
