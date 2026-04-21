@@ -10,16 +10,16 @@ A high-fidelity sentiment analysis pipeline designed for financial text. This sy
 
 ```mermaid
 graph TD
-    %% Node Definitions
+    %% Node Definitions with Strategic Shapes
     Input[/Financial Image or Text/]
-    OCR[OCR Engine: Tesseract]
+    OCR([OCR Engine: Tesseract])
     LLM([LLM Correction: Llama 3.1])
     FinBERT[[Sentiment Engine: FinBERT]]
     LIME{{Explainability: LIME}}
     Dashboard[Interactive Streamlit Dashboard]
     Insights[/Visual Insights/]
 
-    %% Connections
+    %% Logical Flow
     Input --> OCR
     OCR --> LLM
     LLM --> FinBERT
@@ -27,14 +27,16 @@ graph TD
     LIME --> Dashboard
     Dashboard --> Insights
 
-    %% Styling
-    style Input fill:#e1f5fe,stroke:#01579b,stroke-width:2px
-    style OCR fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
-    style LLM fill:#fff3e0,stroke:#ef6c00,stroke-width:2px
-    style FinBERT fill:#fce4ec,stroke:#c2185b,stroke-width:2px
-    style LIME fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
-    style Dashboard fill:#ede7f6,stroke:#4527a0,stroke-width:2px
-    style Insights fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    %% Strategic Styling for High Contrast and Readability
+    %% Using dark borders and light backgrounds with dark text (default)
+    
+    style Input fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style OCR fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style LLM fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style FinBERT fill:#e1f5fe,stroke:#01579b,stroke-width:3px
+    style LIME fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    style Dashboard fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style Insights fill:#f9f9f9,stroke:#333,stroke-width:2px
 ```
 
 ## Key Features
